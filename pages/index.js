@@ -12,13 +12,14 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className="bg-black h-screen text-white flex flex-col gap-14 justify-center items-center">
+      <header className="bg-black h-screen text-white flex flex-col gap-14 justify-center items-center px-8">
         <h2 className="uppercase text-xl font-extralight tracking-[10px]">
           Lorem Ipsum
         </h2>
-        <h1 className="text-5xl md:text-9xl font-bold uppercase tracking-wide">
-          Regime of <br /> Hustler&apos;s
-        </h1>
+        <img
+          className="w-full max-w-5xl"
+          src="assets/logos/RegimeOfHustlersLogo.png"
+        />
         <div className="uppercase md:tracking-[6px] bg-gradient-to-r from-purple-900 to-fuchsia-900 py-4 px-8 rounded-full cursor-pointer">
           Underconstruction
         </div>

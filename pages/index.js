@@ -21,7 +21,7 @@ export default function Home() {
           src="assets/logos/RegimeOfHustlersLogo.png"
         />
         <div className="uppercase md:tracking-[6px] bg-gradient-to-r from-purple-900 to-fuchsia-900 py-4 px-8 rounded-full cursor-pointer">
-          Underconstruction
+          Under Construction
         </div>
         <div className="hidden md:block tracking-wider text-yellow-300 mt-10">
           ------------------------------ #start ------------------------------

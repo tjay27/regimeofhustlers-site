@@ -2,8 +2,6 @@ import react, { useState } from 'react';
 import './App.css';
 import Ham from './Components/Ham';
 import mail from './Assets/icons/mail.png';
-import Axios from 'axios';
-
 
 function App() {
   const [open, setOpen] = useState('');

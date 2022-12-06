@@ -1,0 +1,358 @@
+.Nbar {
+    height: 20%;
+    color: #fff;
+}
+
+.logo {
+    font-size: 3.5vmin;
+    height: auto;
+}
+
+.NbarContent {
+    height: 80%;
+    width: 85%;
+}
+
+.rotatedPath1{
+    height: 2px;
+    width: 100%;
+    top:50%;
+    left:25%;
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+.line1{
+    height: 2px;
+    width: 35%;
+    background-color: var(--accent2);
+}
+
+.rotatedPath2{
+    height: 20px;
+    width: 50%;
+    bottom: 25%;
+    position: absolute;
+    left:-10%;
+    transform: rotate(45deg);
+}
+
+.line2{
+    height: 2px;
+    background-color: var(--accent2);
+    width: 70%;
+}
+
+.title {
+    height: 50%;
+    font-size: 10vmin;
+    color: #fff;
+    display: flex;
+    position: absolute;
+    text-align: end;
+    left: 25%;
+    top: 25%;
+    line-height: 120%;
+}
+
+.notify {
+    width: 12.5%;
+    background-color: var(--accent2);
+    padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 15%;
+    right: 10%;
+    font-weight: bold;
+}
+
+.notify img {
+    height: 5vmin;
+}
+
+.notify input {
+    border: none;
+    height: 100%;
+    width: 75%;
+    outline-style: none;
+    background-color: var(--accent2);
+    color: #fff;
+    text-align: center;
+    font-family: Heebo;
+    font-size: 3vmin;
+}
+.notifyText {
+    color: #fff;
+    font-size: 2.75vmin;
+    font-family: Heebo;
+}
+
+.bottomText {
+    position: absolute;
+    bottom: 5%;
+    left: 45%;
+    color: var(--title);
+    font-family: Heebo;
+    font-size: 3vmin;
+    text-align: center;
+}
+
+::placeholder{
+    opacity: 0.5;
+    color: white;
+    font-family: Heebo;
+}
+
+/* KEYFRAME ANIMATIONS */
+@keyframes slideUp {
+    from{
+        transform: translateY(10vh);
+    }
+    to{
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    to{
+        transform: translateY(15vh);
+        opacity: 0;
+    }
+}
+
+@keyframes line1Out {
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes line1In {
+    0%{
+        transform: translate(100vw);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+
+@keyframes line2Out {
+    0%{
+        transform: translate(0,0);
+    }
+    100%{
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes line2In {
+    0%{
+        transform: translate(100vw);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+
+@keyframes notifyOpen {
+    0%{
+        transform: translate(0,0);
+    }
+    30%{
+        transform: translate(-35vw);
+        width: 7%;
+    }
+    40%{
+        transform: translate(-35vw);
+        width: 7%;
+    }
+    100%{
+        transform: translate(-15vw,-35vh);
+        width: 50%;
+    }
+}
+
+@keyframes notifyClose {
+    0%{
+        transform: translate(-15vw,-35vh);
+        width: 50%;
+    }
+    60%{
+        transform: translate(-35vw);
+        width: 7%;
+    }
+    70%{
+        transform: translate(-35vw);
+        width: 7%;
+    }
+    100%{
+        transform: translate(0,0);
+    } 
+}
+
+@keyframes showform {
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+    30%{
+        width: 0;
+        opacity: 0;
+    }
+    40%{
+        width: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes unhideNotifyText {
+    0%{
+        height: 0;
+        font-size: 0;
+        transform: translate(5vh);
+    }
+    60%{
+        height: 0;
+        font-size: 0;
+        transform: translate(5vh);
+    }
+    70%{
+        height: 0;
+        font-size: 0;
+        transform: translate(5vh);
+    }
+}
+
+@keyframes hideStick {
+    30%{
+        opacity: 0;
+    }
+    40%{
+        opacity: 0;
+    }
+}
+
+@keyframes unhideStick {
+    0%{
+        opacity: 0;
+    }
+    60%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 0;
+    }
+}
+
+@keyframes shiftMail {
+    30%{
+        transform: translateX(-65%);
+    }
+    40%{
+        transform: translateX(-65%);
+    }
+}
+
+@keyframes shiftMailRev {
+    60%{
+        transform: translateX(-60%);
+    }
+    70%{
+        transform: translateX(-60%);
+    }
+}
+
+@keyframes slideDiagonal {
+    from{
+        transform: scale(1) translate(0,0) scale(1);
+    }
+    to{
+        opacity: 0.25;
+        transform: translate(45vw,25vh) scale(0.4);
+    }
+}
+
+@keyframes slideDiagonalRev{
+    from{
+        opacity: 0.25;
+        transform: translate(45vw,25vh) scale(0.4);
+    }
+    to{
+        transform: scale(1) translate(0,0) scale(1);
+    }
+}
+
+/* ANIMATION CLASSES */
+
+.notifyOpen{
+    animation: notifyOpen 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+}
+
+.notifyClose {
+    animation: notifyClose 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+}
+
+.hide{
+    display: none;
+}
+
+.unhideNotifyText{
+    animation: unhideNotifyText 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+}
+
+.showform{
+    animation: showform 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+    display: flex;
+    justify-content: center;
+}
+
+.hideStick{
+    animation: hideStick 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+}
+
+.unhideStick{
+    animation: unhideStick 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+}
+
+.shiftMail {
+    animation: shiftMail 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+}
+
+.shiftMailRev {
+    animation: shiftMailRev 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+}
+
+.slideDiagonal{
+    animation: slideDiagonal 0.4s cubic-bezier(0.5, 0.49, 0.01, 1) forwards;
+}
+
+.slideDiagonalRev{
+    animation: slideDiagonalRev 0.4s cubic-bezier(0.49, 0.49, 0, 1) forwards;
+}
+
+.slideUp{
+    animation: slideUp 0.4s cubic-bezier(0.49, 0.49, 0, 1) forwards;
+}
+
+.slideDown{
+    animation: slideDown 0.4s cubic-bezier(0.49, 0.49, 0, 1) forwards;
+}
+
+.line1Out{
+    animation: line1Out 0.5s cubic-bezier(0.49, 0.49, 0, 1) forwards;
+}
+
+.line1In{
+    animation: line1In 0.5s cubic-bezier(0.49, 0.49, 0, 1) forwards;
+}
+
+.line2Out{
+    animation: line2Out 0.5s cubic-bezier(0.49, 0.49, 0, 1) forwards;
+}
+
+.line2In{
+    animation: line2In 0.5s cubic-bezier(0.49, 0.49, 0, 1) forwards;
+}

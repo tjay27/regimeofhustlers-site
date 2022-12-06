@@ -1,0 +1,39 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+#root{
+  height: 100%;
+}
+
+.App{
+  height: 100%;
+  background-color: var(--background);
+  font-family: 'Sans Forgetica';
+  position: relative;
+}
+
+:root {
+  --background: #1E1E1E;
+  --accent1: #FFE1A8;
+  --accent2: #D7263D;
+  --title: #FFFFFF;
+}
+
+@font-face {
+  font-family: 'Sans Forgetica';
+  src: url(./Assets/fonts/SansForgetica-Regular.woff);
+}
+
+@font-face {
+  font-family: Heebo;
+  src: url(./Assets/fonts/Heebo-Light.ttf);
+}

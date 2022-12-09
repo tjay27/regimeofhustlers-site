@@ -1,12 +1,14 @@
-import react, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Ham from './Components/Ham';
 import mail from './Assets/icons/mail.png';
+import Axios from 'axios';
 
 function App() {
   const [open, setOpen] = useState('');
   const [email, setEmail] = useState('');
   const [emailSent, setEmailSent] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   function handleClick() {
     if (open === '' || open === false)
@@ -22,21 +24,24 @@ function App() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // let url = process.env.NODE_ENV ? 'http://localhost:3001/' : '';
-    // Axios.post(url, { email: email })
-    //   .then((res) => {
-    //     if (res.status === 200) {
-    //       setEmailSent(true);
-    //       setTimeout(() => { setOpen(false) }, 1000);
-    //       setEmail('');
-    //       setEmailSent(false);
-    //     }
-    //   }).catch((err) => { });
-    // let url = ''
-          setEmailSent(true);
-          setTimeout(() => { setOpen(false) }, 1000);
-          
+    let url = process.env.NODE_ENV === 'production' ? 'https://regimeofhustlers-api.onrender.com/' : 'http://localhost:3001/';
 
+    const config = {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*',
+      }
+    }
+    
+    Axios.post(url, { email: email }, config).then((res) => {
+      if (res.status === 200) {
+        setEmailSent(true);
+        setTimeout(() => { setOpen(false); setEmailSent(false); setEmail(''); }, 1000);
+      }
+    }).catch((err) => {
+      setShowError(true);
+      setTimeout(() => { setShowError(false); setOpen(false); }, 1000);
+    });
   }
 
   let notifyOpen = open !== '' && open ? 'notifyOpen' : '';
@@ -54,7 +59,7 @@ function App() {
   let slideUp = open !== '' && !open ? 'slideUp' : '';
   let slideDown = open || emailSent ? 'slideDown' : '';
   let slideUpEnter = open ? 'slideUp' : '';
-  let slideDownEnter = !open || emailSent ? 'slideDown' : '';
+  let slideDownEnter = !open || emailSent || showError ? 'slideDown' : '';
   let line1Out = open !== '' && open ? 'line1Out' : '';
   let line1In = open !== '' && !open ? 'line1In' : '';
   let line2Out = open !== '' && open ? 'line2Out' : '';
@@ -96,6 +101,9 @@ function App() {
         </div>
         <div className={`bottomText ${emailSent ? 'slideUp' : 'slideDown'}`}>
           Mail Submitted
+        </div>
+        <div className={`bottomText ${showError ? 'slideUp' : 'slideDown'}`}>
+          There was some error!
         </div>
       </div>
     </>);

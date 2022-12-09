@@ -356,3 +356,114 @@
 .line2In{
     animation: line2In 0.5s cubic-bezier(0.49, 0.49, 0, 1) forwards;
 }
+
+
+@media (min-width:320px) and (max-width:480px) {
+    .rotatedPath1{
+        height: 2px;
+        width: 100%;
+        top:20%;
+        left:25%;
+        position: absolute;
+        transform: rotate(45deg);
+    }    
+
+    .rotatedPath2{
+        height: 20px;
+        width: 50%;
+        bottom: 35%;
+        position: absolute;
+        left:-10%;
+        transform: rotate(45deg);
+    }    
+
+    .line2{
+        width: 120%;
+    }
+
+    .title {
+        height: 50%;
+        font-size: 10vmin;
+        color: #fff;
+        display: flex;
+        position: absolute;
+        text-align: end;
+        left: 15%;
+        top: 25%;
+        line-height: 120%;
+    }
+
+    .bottomText {
+        position: absolute;
+        bottom: 5%;
+        left: 38%;
+        color: var(--title);
+        font-family: Heebo;
+        font-size: 3vmin;
+        text-align: center;
+    }
+
+    .notify {
+        width: 30%;
+        background-color: var(--accent2);
+        padding: 0.5rem;
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 15%;
+        right: 10%;
+        font-weight: bold;
+    }
+
+    .notifyText {
+        color: #fff;
+        font-size: 3.25vmin;
+        font-family: Heebo;
+    }
+
+    @keyframes line2Out {
+        0%{
+            transform: translate(0,0);
+        }
+        100%{
+            transform: translateX(130vw);
+        }
+    }
+
+    @keyframes notifyOpen {
+        0%{
+            transform: translate(0,0);
+        }
+        30%{
+            transform: translate(-35vw);
+            width: 15%;
+        }
+        40%{
+            transform: translate(-35vw);
+            width: 15%;
+        }
+        100%{
+            transform: translate(-15vw,-35vh);
+            width: 50%;
+        }
+    }
+
+    
+@keyframes notifyClose {
+    0%{
+        transform: translate(-15vw,-35vh);
+        width: 50%;
+    }
+    60%{
+        transform: translate(-35vw);
+        width: 15%;
+    }
+    70%{
+        transform: translate(-35vw);
+        width: 15%;
+    }
+    100%{
+        transform: translate(0,0);
+    } 
+}
+}

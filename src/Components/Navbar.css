@@ -1,0 +1,38 @@
+.Nbar {
+    height: 30%;
+    color: #fff;
+    position: relative;
+    padding: 0 5% 0 5%;
+}
+
+.NbarContent{
+    height: auto;
+    width: 40%;
+    position: absolute;
+    left: 10%;
+}
+
+.navItem{
+    font-family: Heebo;
+    display: flex;
+    height: 25%;
+    margin: 3%;
+}
+
+.navItemName{
+    font-size: 3rem;
+    margin-left: 1rem;
+    color: #fff;
+}
+
+.Heebo{
+    font-family: Heebo;
+}
+
+.num{
+    color: var(--accent2);
+}
+
+.hideNavbar{
+    visibility: hidden;
+}

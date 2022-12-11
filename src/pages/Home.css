@@ -1,36 +1,32 @@
-.Nbar {
-    height: 20%;
-    color: #fff;
+.Home{
+    height: 100%;
+    width: 100%;
 }
 
 .logo {
     font-size: 3.5vmin;
     height: auto;
-}
-
-.NbarContent {
-    height: 80%;
-    width: 85%;
+    top: 10%;
 }
 
 .rotatedPath1{
     height: 2px;
-    width: 100%;
+    width: 70%;
     top:50%;
-    left:25%;
+    left:35%;
     position: absolute;
     transform: rotate(45deg);
 }
 
 .line1{
     height: 2px;
-    width: 35%;
+    width: 20%;
     background-color: var(--accent2);
 }
 
 .rotatedPath2{
     height: 20px;
-    width: 50%;
+    width: 40%;
     bottom: 25%;
     position: absolute;
     left:-10%;
@@ -51,12 +47,12 @@
     position: absolute;
     text-align: end;
     left: 25%;
-    top: 25%;
+    top: 30%;
     line-height: 120%;
 }
 
-.notify {
-    width: 12.5%;
+.joinUs {
+    width: 10%;
     background-color: var(--accent2);
     padding: 0.5rem;
     display: flex;
@@ -67,11 +63,11 @@
     font-weight: bold;
 }
 
-.notify img {
-    height: 5vmin;
+.joinUs img {
+    height: 3.75vmin;
 }
 
-.notify input {
+.joinUs input {
     border: none;
     height: 100%;
     width: 75%;
@@ -82,20 +78,24 @@
     font-family: Heebo;
     font-size: 3vmin;
 }
-.notifyText {
+.joinUsText {
     color: #fff;
     font-size: 2.75vmin;
     font-family: Heebo;
 }
 
-.bottomText {
+.socials{
     position: absolute;
     bottom: 5%;
-    left: 45%;
-    color: var(--title);
-    font-family: Heebo;
-    font-size: 3vmin;
-    text-align: center;
+    width: 10%;
+    display: flex;
+    right: 15%;
+    justify-content: space-between;
+
+}
+
+.socials img {
+    height: 5vmin;
 }
 
 ::placeholder{
@@ -126,7 +126,8 @@
         transform: translate(0,0);
     }
     100%{
-        transform: translateX(100vw);
+        transform: translateX(70vw);
+        opacity: 0;
     }
 }
 
@@ -144,7 +145,8 @@
         transform: translate(0,0);
     }
     100%{
-        transform: translateX(100vw);
+        transform: translateX(45vw);
+        opacity: 0;
     }
 }
 
@@ -157,40 +159,16 @@
     }
 }
 
-@keyframes notifyOpen {
-    0%{
-        transform: translate(0,0);
-    }
-    30%{
-        transform: translate(-35vw);
-        width: 7%;
-    }
-    40%{
-        transform: translate(-35vw);
-        width: 7%;
-    }
+@keyframes joinUsOpen {
     100%{
-        transform: translate(-15vw,-35vh);
-        width: 50%;
+        opacity: 0;
     }
 }
 
-@keyframes notifyClose {
+@keyframes joinUsClose {
     0%{
-        transform: translate(-15vw,-35vh);
-        width: 50%;
+        opacity: 0;
     }
-    60%{
-        transform: translate(-35vw);
-        width: 7%;
-    }
-    70%{
-        transform: translate(-35vw);
-        width: 7%;
-    }
-    100%{
-        transform: translate(0,0);
-    } 
 }
 
 @keyframes showform {
@@ -208,7 +186,7 @@
     }
 }
 
-@keyframes unhideNotifyText {
+@keyframes unhidejoinUsText {
     0%{
         height: 0;
         font-size: 0;
@@ -271,14 +249,14 @@
     }
     to{
         opacity: 0.25;
-        transform: translate(45vw,25vh) scale(0.4);
+        transform: translate(45vw,22vh) scale(0.4);
     }
 }
 
 @keyframes slideDiagonalRev{
     from{
         opacity: 0.25;
-        transform: translate(45vw,25vh) scale(0.4);
+        transform: translate(45vw,22vh) scale(0.4);
     }
     to{
         transform: scale(1) translate(0,0) scale(1);
@@ -287,20 +265,20 @@
 
 /* ANIMATION CLASSES */
 
-.notifyOpen{
-    animation: notifyOpen 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+.joinUsOpen{
+    animation: joinUsOpen 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
 }
 
-.notifyClose {
-    animation: notifyClose 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+.joinUsClose {
+    animation: joinUsClose 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
 }
 
 .hide{
     display: none;
 }
 
-.unhideNotifyText{
-    animation: unhideNotifyText 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
+.unhidejoinUsText{
+    animation: unhidejoinUsText 1s cubic-bezier(0.5, 0.49, 0.01, 1) 1 forwards;
 }
 
 .showform{

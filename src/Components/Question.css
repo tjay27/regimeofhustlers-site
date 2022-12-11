@@ -1,0 +1,44 @@
+.content{
+    height: auto;
+    width: 100%;
+    margin:0 10% 0 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item{
+    display: flex;
+    width: 50%;
+}
+
+.question{
+    font-size: 3rem;
+    margin-left: 1rem;
+    color: #fff;
+}
+
+.icons{
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icons img{
+    height: 10vmin;
+    border-radius: 50%;
+    padding: 2vmin;
+}
+
+.icons img:hover{
+    transition: 0.3s;
+    height: 10vmin;
+    background-color: var(--accent2);
+    border-radius: 50%;
+    padding: 2vmin;
+}
+
+.num{
+    font-family: Heebo;
+    color: var(--accent2);
+}

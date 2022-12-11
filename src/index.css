@@ -1,24 +1,7 @@
 *{
   margin: 0;
   padding: 0;
-}
-
-body,
-html {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
-
-#root{
-  height: 100%;
-}
-
-.App{
-  height: 100%;
-  background-color: var(--background);
-  font-family: 'Sans Forgetica';
-  position: relative;
+  box-sizing: border-box;
 }
 
 :root {
@@ -27,6 +10,34 @@ html {
   --accent2: #D7263D;
   --title: #FFFFFF;
 }
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body{
+  background-color: #1E1E1E!important;
+}
+
+#root{
+  height: 100%;
+  width: 100%;
+}
+
+.App{
+  height: 100%;
+  width: 100%;
+  font-family: 'Sans Forgetica';
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
 
 @font-face {
   font-family: 'Sans Forgetica';

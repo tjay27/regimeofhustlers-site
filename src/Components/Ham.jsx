@@ -65,7 +65,7 @@ export default function HamburgerMenu(props) {
 }
 
 HamburgerMenu.propTypes = {
-    isOpen: PropTypes.bool.isRequired,
+    isOpen: PropTypes.isRequired,
     menuClicked: PropTypes.func.isRequired,
     width: PropTypes.number,
     height: PropTypes.number,

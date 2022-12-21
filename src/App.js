@@ -1,6 +1,5 @@
 import Home from './pages/Home';
 import Mission from './pages/Mission';
-
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {

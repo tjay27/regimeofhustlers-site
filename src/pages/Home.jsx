@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Home.css'
 import Navbar from './../Components/Navbar';
 import Textdiv from './../Components/Textdiv';
@@ -19,11 +19,27 @@ function Home() {
   let slideDiagonalRev = open !== '' && !open ? 'slideDiagonalRev' : '';
   let joinUsOpen = open !== '' && open ? 'joinUsOpen' : '';
   let joinUsClose = open !== '' && !open ? 'joinUsClose' : '';
-  let correctAnswer = [0,1,0] === answers ? '':'hide';
-  let wrongAnswer = [0,1,0] !== answers ? 'hide':'';
+  let isCorrect = JSON.stringify([0, 1, 0]) === JSON.stringify(answers);
+  const [changeColor, setchangeColor] = useState('');
+
+
+  const [scrollPosition, setScrollPosition] = useState(0)
+  const handleScroll = () => {
+    const position = window.scrollY
+    console.log(position)
+    setScrollPosition(position)
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [scrollPosition]);
 
   return (
     <div className="Home">
+
       <div className={'rotatedPath1'}>
         <div className={`line1 ${line1Out} ${line1In}`}></div>
       </div>
@@ -31,7 +47,7 @@ function Home() {
       <div className="rotatedPath2">
         <div className={`line2 ${line2In} ${line2Out}`}></div>
       </div>
-      <div style={{ height: '70%', width: '100%' }}>
+      <div style={{ height: '70%', width: '100%' }} className={`${changeColor}`}>
         <div className={`title ${slideDiagonal} ${slideDiagonalRev}`}>
           We<br />Hustlers<br />Never<br />Quit
         </div>
@@ -41,16 +57,18 @@ function Home() {
           <img src={lock} alt="" />
         </div>
       </div>
-      <Textdiv text={'Welcome to'} size={15} color={'white'}/>
-      <Textdiv text={'RegimeOfHustlers'} size={15} color={'#D7263D'}/>
-      <Textdiv text={'But'} size={30} color={'white'}/>
-      <Textdiv text={'Are you worthy?'} size={15} color={'white'}/>
-      <Textdiv text={'To become one of us.'} size={15} color={'white'}/>
-      <Textdiv text={"Let's test that shall we?"} size={15} color={'white'}/>
-      <Textdiv text={'Answer these questions.'} size={15} color={'white'}/>
-      <Questions answers={answers} setAnswers={setAnswers}/>
-      <Path path='correct' className={`${correctAnswer}`}/>
-      {/* <Path path='wrong' className={`${wrongAnswer}`}/> */}
+      <>
+        <Textdiv text={'Welcome to'} size={15} color={'white'} />
+        <Textdiv text={'RegimeOfHustlers'} size={15} color={'#D7263D'} />
+        <Textdiv text={'But'} size={30} color={'white'} />
+        <Textdiv text={'Are you worthy?'} size={15} color={'white'} />
+        <Textdiv text={'To become one of us.'} size={15} color={'white'} />
+        <Textdiv text={"Let's test that shall we?"} size={15} color={'white'} />
+        <Textdiv text={'Answer these questions.'} size={15} color={'white'} />
+        <Questions answers={answers} setAnswers={setAnswers} />
+        <Path path='correct' toHide={!isCorrect} />
+        <Path path='wrong' toHide={isCorrect} />
+      </>
     </div>
   );
 }

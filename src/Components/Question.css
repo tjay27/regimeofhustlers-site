@@ -6,9 +6,18 @@
     justify-content: space-between;
 }
 
+.questions{
+    width: 50%;
+}
+
 .item{
     display: flex;
+    position: absolute;
     width: 50%;
+}
+
+.hide{
+    display: none;
 }
 
 .question{
@@ -41,4 +50,9 @@
 .num{
     font-family: Heebo;
     color: var(--accent2);
+}
+
+.warning {
+    width: 25%;
+    margin-top: 10%;
 }

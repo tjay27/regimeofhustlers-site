@@ -119,6 +119,20 @@ button {
     background-color: blue;
 }
 
+.fadeOut{
+    animation: fadeOut 1s 1 forwards ;
+}
+
+@keyframes fadeOut {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+
 ::placeholder {
     opacity: 0.5;
     color: white;

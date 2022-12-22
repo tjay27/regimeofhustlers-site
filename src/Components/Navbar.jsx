@@ -13,22 +13,15 @@ export default function Navbar(props) {
     let open = props.open;
     let setOpen = props.setOpen;
     let hideNavbar = !open ? 'hideNavbar' : '';
-    let logo = useRef();
 
     return (
         <>
             <div className='Nbar d-flex align-items-center justify-content-between'>
                 <AnimationOnScroll
-                    animateOut='animate__fadeOutLeft'
+                    animateOut='animate__fadeOutLeft' 
+                    animateIn='animate__fadeInLeft'
                     initiallyVisible='true'
                     offset={100}
-                    afterAnimatedIn={
-                        () => {
-                            if (isVisible.onScreen) {
-                                this.current.opacity = 1;
-                            }
-                        }
-                    }
                 >
 
                     <div className="logo">
@@ -38,15 +31,9 @@ export default function Navbar(props) {
 
                 <AnimationOnScroll
                     animateOut='animate__fadeOutRight'
+                    animateIn='animate__fadeInRight'
                     initiallyVisible='true'
                     offset={100}
-                    afterAnimatedIn={
-                        () => {
-                            if (isVisible.onScreen) {
-                                this.current.opacity = 1;
-                            }
-                        }
-                    }
                 >
 
                     <Ham menuClicked={() => { setOpen(!open) }} isOpen={open} color='#fff' height={20} width={30} strokeWidth={2} />

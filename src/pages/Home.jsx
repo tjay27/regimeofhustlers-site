@@ -5,6 +5,7 @@ import Textdiv from './../Components/Textdiv';
 import Questions from './../Components/Questions';
 import Path from './../Components/Path';
 import lock from './../Assets/icons/lock.svg';
+import { AnimationOnScroll } from 'react-animation-on-scroll';
 
 
 function Home() {
@@ -22,12 +23,12 @@ function Home() {
   let isCorrect = JSON.stringify([0, 1, 0]) === JSON.stringify(answers);
   const [changeColor, setchangeColor] = useState('');
 
-
   const [scrollPosition, setScrollPosition] = useState(0)
   const handleScroll = () => {
-    const position = window.scrollY
-    console.log(position)
-    setScrollPosition(position)
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) * 100;
+    const position = window.scrollY;
+    console.log(scrollPercent);
+    //setScrollPosition(scrollPercent*100);
   }
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
@@ -35,11 +36,12 @@ function Home() {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [scrollPosition]);
+  }, []);
+
 
   return (
-    <div className="Home">
-
+    <div className="Home" id='Home'>
+      {/* <div style ={{height: '150px', backgroundColor: 'pink'}}></div> */}
       <div className={'rotatedPath1'}>
         <div className={`line1 ${line1Out} ${line1In}`}></div>
       </div>
@@ -57,6 +59,7 @@ function Home() {
           <img src={lock} alt="" />
         </div>
       </div>
+
       <>
         <Textdiv text={'Welcome to'} size={15} color={'white'} />
         <Textdiv text={'RegimeOfHustlers'} size={15} color={'#D7263D'} />

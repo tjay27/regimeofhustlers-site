@@ -3,11 +3,6 @@
     width: 100%;
 }
 
-.logo {
-    font-size: 3.5vmin;
-    height: auto;
-    top: 10%;
-}
 
 .rotatedPath1 {
     height: 2px;
@@ -26,7 +21,7 @@
 
 .rotatedPath2 {
     height: 20px;
-    width: 40%;
+    width: 37%;
     bottom: 25%;
     position: absolute;
     left: -10%;
@@ -108,7 +103,9 @@ button {
 }
 
 .textDiv{
-    height: 100%;
+    /* margin-bottom: 15%; */
+    margin-bottom: 25%;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;

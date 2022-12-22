@@ -4,7 +4,11 @@
     position: relative;
     padding: 0 5% 0 5%;
 }
-
+.logo {
+    font-size: 3.5vmin;
+    height: auto;
+    top: 10%;
+}
 .NbarContent{
     height: auto;
     width: 40%;

@@ -1,14 +1,22 @@
 .Home {
     height: 100%;
     width: 100%;
+    z-index: 2;
 }
 
+.Model{
+    position: fixed;
+    top: 0;
+    z-index: -10;
+    height: 100%;
+    width: 100%;
+}
 
 .rotatedPath1 {
     height: 2px;
-    width: 70%;
-    top: 50%;
-    left: 35%;
+    width: 50%;
+    top: 37.5%;
+    left: 40%;
     position: absolute;
     transform: rotate(45deg);
 }
@@ -103,7 +111,6 @@ button {
 }
 
 .textDiv{
-    /* margin-bottom: 15%; */
     margin-bottom: 25%;
     height: auto;
     display: flex;

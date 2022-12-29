@@ -3,10 +3,11 @@ import './Question.css';
 import correct from './../Assets/icons/correct.svg';
 import wrong from './../Assets/icons/wrong.svg';
 import { useState } from 'react';
+import { useRef } from 'react';
 
 export default function Question(props) {
     let { answers, setAnswers } = props;
-
+    let ref = useRef(null);
     const [showQue, setshowQue] = useState([1, 0, 0]);
 
     const show1 = showQue[0] ? '' : 'hide';
@@ -31,7 +32,7 @@ export default function Question(props) {
             setshowQue([0, 0, 1]);
         }
         else if (changeQ3) {
-            setshowQue([0, 0, 0]);
+            setshowQue([0, 0, 1]);
         }
     }
     function handleCorrect() {

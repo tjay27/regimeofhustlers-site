@@ -3,16 +3,15 @@ import './Question.css';
 import correct from './../Assets/icons/correct.svg';
 import wrong from './../Assets/icons/wrong.svg';
 import { useState } from 'react';
-import { useRef } from 'react';
+
 
 export default function Question(props) {
     let { answers, setAnswers } = props;
-    let ref = useRef(null);
     const [showQue, setshowQue] = useState([1, 0, 0]);
 
-    const show1 = showQue[0] ? '' : 'hide';
-    const show2 = showQue[1] ? '' : 'hide';
-    const show3 = showQue[2] ? '' : 'hide';
+    const show1 = showQue[0] ? 'animate__fadeInUp' : 'animate__fadeOutUp';
+    const show2 = showQue[1] ? 'animate__fadeInUp' : 'animate__fadeOutUp';
+    const show3 = showQue[2] ? 'animate__fadeInUp' : 'animate__fadeOutUp';
 
     let questions = [
         ['01', 'Do you beleive in fair fights?'],
@@ -50,40 +49,39 @@ export default function Question(props) {
     return (
         <div className='h-100 d-flex align-items-center justify-content-between'>
             <div className="content">
-                <div className="questions">
-                    <div className={`item ${show1}`}>
-                        <div className="num">
-                            {questions[0][0]}
+                <div className="text">
+                    <div className="questions">
+                        <div className={`item ${show1} animate__animated`}>
+                            <div className="num">
+                                {questions[0][0]}
+                            </div>
+                            <div className="question">
+                                {questions[0][1]}
+                            </div>
                         </div>
-                        <div className="question">
-                            {questions[0][1]}
+                        <div className={`item ${show2} animate__animated`}>
+                            <div className="num">
+                                {questions[1][0]}
+                            </div>
+                            <div className="question">
+                                {questions[1][1]}
+                            </div>
+                        </div>
+                        <div className={`item ${show3} animate__animated`} >
+                            <div className="num">
+                                {questions[2][0]}
+                            </div>
+                            <div className="question">
+                                {questions[2][1]}
+                            </div>
                         </div>
                     </div>
-                    <div className={`item ${show2}`}>
-                        <div className="num">
-                            {questions[1][0]}
-                        </div>
-                        <div className="question">
-                            {questions[1][1]}
-                        </div>
+                    <div className="icons">
+                        <button onClick={handleCorrect}><img src={correct} alt="" /></button>
+                        <button onClick={handleWrong}><img src={wrong} alt="" /></button>
                     </div>
-                    <div className={`item ${show3}`} >
-                        <div className="num">
-                            {questions[2][0]}
-                        </div>
-                        <div className="question">
-                            {questions[2][1]}
-                        </div>
-                    </div>
-                </div>
-                <div className="icons">
-                    <button onClick={handleCorrect}><img src={correct} alt="" /></button>
-                    <button onClick={handleWrong}><img src={wrong} alt="" /></button>
                 </div>
             </div>
-            {/* <div className="warning">
-                Think before you answer, you can't correct them later.
-            </div> */}
         </div >
 
     )

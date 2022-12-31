@@ -8,11 +8,7 @@ import lock from './../Assets/icons/lock.svg';
 import { AnimationOnScroll } from 'react-animation-on-scroll';
 import { Canvas } from '@react-three/fiber';
 import Model from "./../Assets/models/HumansMesh";
-import Keyboard from "./../Assets/models/Keyboard";
 import RotationWrapper from "./../Components/RotationWrapper";
-import { useFrame } from '@react-three/fiber';
-import 'animate.css/animate.min.css';
-import * as THREE from 'three';
 
 
 
@@ -31,19 +27,30 @@ function Home() {
   let isCorrect = JSON.stringify([0, 1, 0]) === JSON.stringify(answers);
   let hidePath = answers.length < 3;
 
-  //const [scroll, setScroll] = useState(0);
   const scroll = useRef(0)
+  const path = useRef();
+  const mousemoved = useRef([0, 0]);
+
   const handleScroll = () => {
-    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight)) ;
+    if (!hidePath)
+      scroll.current = 0;
+    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - document.documentElement.clientHeight));
     scroll.current = scrollPercent;
   }
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, []);
+  },[]);
+
+  useEffect(() => {
+    if (answers.length >= 3) {
+      path.current?.scrollIntoView({ behavior: 'smooth' , duration: 1000});
+    }
+  }, [answers]);
 
 
   return (
@@ -72,8 +79,8 @@ function Home() {
 
           {/* Start Scene objects */}
           <Suspense>
-            <RotationWrapper scroll={scroll}>
-              <Keyboard position={[0, 0, 1]} rotation={[0.5, 0, 0]} scale={[15, 15, 10]} />
+            <RotationWrapper scroll={scroll} mousemoved={mousemoved}>
+              <Model position={[0, -3.5, -1]} rotation={[0, 0, 0]} />
             </RotationWrapper>
           </Suspense>
           {/* End Scene objects */}
@@ -86,7 +93,7 @@ function Home() {
             animateOut='line1Out'
             animationDuration={1}
             animateIn='line1In'
-            offset={200}
+            initiallyVisible={true}
           >
             <div className={`line1 ${line1Out} ${line1In}`}></div>
           </AnimationOnScroll>
@@ -97,6 +104,7 @@ function Home() {
             animateOut='line2Out'
             animationDuration={1}
             animateIn='line2In'
+            initiallyVisible={true}
           >
             <div className={`line2 ${line2In} ${line2Out}`}></div>
           </AnimationOnScroll>
@@ -107,7 +115,7 @@ function Home() {
             animateOut='animate__fadeOut'
             animationDuration={1}
             animateIn='animate__fadeIn'
-            offset={100}
+            initiallyVisible={true}
           >
 
             <div className={`title ${slideDiagonal} ${slideDiagonalRev}`}>
@@ -136,7 +144,6 @@ function Home() {
             animateOut='animate__fadeOut'
             animationDuration={1}
             animateIn='animate__fadeIn'
-            offset={300}
           >
             <Textdiv text={'Welcome to'} size={15} color={'white'} />
           </AnimationOnScroll>
@@ -144,7 +151,7 @@ function Home() {
             animateOut='animate_fadeOut'
             animationDuration={1}
             animateIn='animate__fadeIn'
-            offset={300}>
+          >
             <Textdiv text={'RegimeOfHustlers'} size={15} color={'#D7263D'} />
           </AnimationOnScroll>
           <AnimationOnScroll
@@ -158,18 +165,37 @@ function Home() {
           <AnimationOnScroll
             animateOut='animate__fadeOut'
             animationDuration={1}
-            animateIn='animate__fadeInUp'
+            animateIn='animate__fadeIn'
             offset={100}
           >
             <Textdiv text={'Are you worthy?'} size={15} color={'white'} />
           </AnimationOnScroll>
-
-          <Textdiv text={'To become one of us.'} size={15} color={'white'} />
-          <Textdiv text={"Let's test that shall we?"} size={15} color={'white'} />
-          <Textdiv text={'Answer these questions.'} size={15} color={'white'} marginB={1} />
+          <AnimationOnScroll
+            animateOut='animate_fadeOut'
+            animationDuration={1}
+            animateIn='animate__fadeIn'
+          >
+            <Textdiv text={'To become one of us.'} size={15} color={'white'} />
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            animateOut='animate_fadeOut'
+            animationDuration={1}
+            animateIn='animate__fadeIn'
+          >
+            <Textdiv text={"Let's test that shall we?"} size={15} color={'white'} />
+          </AnimationOnScroll>
+          <AnimationOnScroll
+            animateOut='animate_fadeOut'
+            animationDuration={1}
+            animateIn='animate__fadeIn'
+          >
+            <Textdiv text={'Answer these questions.'} size={15} color={'white'} marginB={0.5}/>
+          </AnimationOnScroll>
           <Questions answers={answers} setAnswers={setAnswers} />
-          <Path path='correct' toHide={!isCorrect || hidePath} />
-          <Path path='wrong' toHide={isCorrect || hidePath} />
+          <div ref={path} style={{paddingTop: '10%', paddingBottom:'0.005%'}} className={hidePath?'hide':''}>
+            <Path path='correct' toHide={!isCorrect || hidePath} />
+            <Path path='wrong' toHide={isCorrect || hidePath} />
+          </div>
         </>
       </>
     </div>

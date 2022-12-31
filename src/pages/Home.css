@@ -111,23 +111,17 @@ button {
 }
 
 .textDiv{
-    margin-bottom: 25%;
     height: auto;
-    display: flex;
     justify-content: center;
-    align-items: center;
-}
-
-.red{
-    background-color: red;
-}
-
-.blue{
-    background-color: blue;
 }
 
 .fadeOut{
     animation: fadeOut 1s 1 forwards ;
+}
+
+.pathWrapper{
+    padding-top: 25%;
+    padding-bottom: 25%;
 }
 
 @keyframes fadeOut {
